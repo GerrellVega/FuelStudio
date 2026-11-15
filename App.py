@@ -105,6 +105,19 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         inputs=[input_image, command_input, num_outputs_slider, history_state],
         outputs=[slot1_img, slot2_img, slot3_img, status_output]
     )
+run_btn.click(
+    fn=process_pipeline,
+    inputs=[
+        input_image,
+        command_input,
+        num_outputs_slider,
+        history_state
+    ],
+    outputs=[
+        [slot1_img, slot2_img, slot3_img],
+        status_output
+    ]
+)
 
     # Layer navigation handlers
     def step_layer(direction, current_idx):
